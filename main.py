@@ -39,6 +39,7 @@ if __name__ == '__main__':
         ],
     )
     controller = controllerReserv['Reservations'][0]['Instances'][0]
+    print(controller)
     controllerIp = controller["PublicIpAddress"]
     os.environ['clusterurl'] = controllerIp
     subprocess.call("./spark-script.sh", shell=True)
