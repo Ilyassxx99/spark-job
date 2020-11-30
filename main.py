@@ -24,8 +24,8 @@ if __name__ == '__main__':
         }
     )
     client = boto3.client("ec2",
-    #aws_access_key_id=ACCESS_KEY,
-    #aws_secret_access_key=SECRET_KEY,
+    aws_access_key_id=ACCESS_KEY,
+    aws_secret_access_key=SECRET_KEY,
     config=my_config
     )
     controllerReserv = response = client.describe_instances(
