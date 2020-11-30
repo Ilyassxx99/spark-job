@@ -1,0 +1,11 @@
+version: "3.8"
+services:
+#Spark job initiator
+  spark:
+    image: ilyassifez/bdataproject:sparky
+    container_name: spark
+    command: ["python3.8","main.py"]
+    environment:
+      ACCESS_KEY: $ACCESS_KEY
+      SECRET_KEY: $SECRET_KEY
+      REGION: $REGION
