@@ -7,13 +7,19 @@ bin/spark-submit \
 --master k8s://$clusterurl:$port \
 --deploy-mode cluster \
 --name spark-pi \
---class org.apache.spark.examples.SparkPi \
+--class org.apache.spark.examples.SparkPi \ #WordCount
 --conf spark.executor.instances=3 \
 --conf spark.kubernetes.driver.request.cores=1 \
 --conf spark.kubernetes.executor.request.cores=1 \
 --conf spark.kubernetes.container.image=ilyassifez/bdataprojectpython:spark-testy \
---conf spark.kubernetes.container.image.pullPolicy=IfNotPresent \
+--conf spark.kubernetes.container.image.pullPolicy=Always \
 --conf spark.kubernetes.authenticate.driver.serviceAccountName=spark \
-local:///opt/spark/examples/jars/spark-examples_2.12-3.0.1.jar
+--conf spark.eventLog.enabled=true \
+--conf spark.eventLog.dir=/opt/spark/work-dir \
+--conf spark.kubernetes.driver.volumes.persistentVolumeClaim.spark-volume-claim.options.claimName=spark-volume-claim \
+--conf spark.kubernetes.driver.volumes.persistentVolumeClaim.spark-volume-claim.mount.path=/opt/spark/work-dir \
+--conf spark.kubernetes.executor.volumes.persistentVolumeClaim.spark-volume-claim.options.claimName=spark-volume-claim \
+ --conf spark.kubernetes.executor.volumes.persistentVolumeClaim.spark-volume-claim.mount.path=/opt/spark/work-dir \
+local:///opt/spark/examples/jars/spark-examples_2.12-3.0.1.jar #local:///opt/spark/WordCount.jar
 #Cleanup of spark job pods
 # kubectl delete pods --all -n default
