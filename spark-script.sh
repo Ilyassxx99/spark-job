@@ -7,7 +7,7 @@ bin/spark-submit \
 --master k8s://$clusterurl:$port \
 --deploy-mode cluster \
 --name spark-pi \
---class org.apache.spark.examples.SparkPi \ #WordCount
+--class org.apache.spark.examples.SparkPi \
 --conf spark.executor.instances=3 \
 --conf spark.kubernetes.driver.request.cores=1 \
 --conf spark.kubernetes.executor.request.cores=1 \
@@ -20,6 +20,6 @@ bin/spark-submit \
 --conf spark.kubernetes.driver.volumes.persistentVolumeClaim.spark-volume-claim.mount.path=/opt/spark/work-dir \
 --conf spark.kubernetes.executor.volumes.persistentVolumeClaim.spark-volume-claim.options.claimName=spark-volume-claim \
 --conf spark.kubernetes.executor.volumes.persistentVolumeClaim.spark-volume-claim.mount.path=/opt/spark/work-dir \
-local:///opt/spark/examples/jars/spark-examples_2.12-3.0.1.jar #local:///opt/spark/WordCount.jar
+local:///opt/spark/examples/jars/spark-examples_2.12-3.0.1.jar
 #Cleanup of spark job pods
 # kubectl delete pods --all -n default
