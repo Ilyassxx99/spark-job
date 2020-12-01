@@ -6,8 +6,8 @@ cd /opt/spark
 bin/spark-submit \
 --master k8s://$clusterurl:$port \
 --deploy-mode cluster \
---name spark-pi \
---class org.apache.spark.examples.SparkPi \
+--name WordCount \
+--class WordCount \
 --conf spark.executor.instances=3 \
 --conf spark.kubernetes.driver.request.cores=1 \
 --conf spark.kubernetes.executor.request.cores=1 \
