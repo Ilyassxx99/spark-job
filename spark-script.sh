@@ -12,14 +12,15 @@ bin/spark-submit \
 --conf spark.kubernetes.driver.request.cores=1 \
 --conf spark.kubernetes.executor.request.cores=1 \
 --conf spark.kubernetes.container.image=ilyassifez/spark:testy \
+--conf spark.kubernetes.driver.podTemplateFile=/scripts/pod.yaml   \
 --conf spark.kubernetes.container.image.pullPolicy=Always \
 --conf spark.kubernetes.authenticate.driver.serviceAccountName=spark \
 --conf spark.eventLog.enabled=true \
 --conf spark.eventLog.dir=/opt/spark/work-dir \
 --conf spark.kubernetes.driver.volumes.persistentVolumeClaim.spark-volume-claim.options.claimName=spark-volume-claim \
 --conf spark.kubernetes.driver.volumes.persistentVolumeClaim.spark-volume-claim.mount.path=/opt/spark/work-dir \
---conf spark.kubernetes.executor.volumes.persistentVolumeClaim.spark-volume-claim.options.claimName=spark-volume-claim \
---conf spark.kubernetes.executor.volumes.persistentVolumeClaim.spark-volume-claim.mount.path=/opt/spark/work-dir \
 local:///opt/spark/jobs/WordCount.jar
 #Cleanup of spark job pods
 # kubectl delete pods --all -n default
+# --conf spark.kubernetes.executor.volumes.persistentVolumeClaim.spark-volume-claim.options.claimName=spark-volume-claim \
+# --conf spark.kubernetes.executor.volumes.persistentVolumeClaim.spark-volume-claim.mount.path=/opt/spark/work-dir \
