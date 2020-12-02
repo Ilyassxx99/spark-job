@@ -28,7 +28,6 @@ echo "--------------------------------------------------------------------------
 echo "Spark Job results are located in /data/default/user/spark/results in the node with IP: $SPARK_NODE"
 echo "SSH to $SPARK_NODE using the following key : "
 cat /root/.kube/project-key.pem
-echo "----------------------------------------------------------------------------------------------"
 # kubectl delete pods --all -n default
 # --conf spark.kubernetes.executor.volumes.persistentVolumeClaim.spark-volume-claim.options.claimName=spark-volume-claim \
 # --conf spark.kubernetes.executor.volumes.persistentVolumeClaim.spark-volume-claim.mount.path=/opt/spark/work-dir \
