@@ -1,10 +1,8 @@
 FROM rappdw/docker-java-python:latest
 
-RUN python --version
-RUN java -version
 
 RUN wget -c "https://curl.haxx.se/download/curl-7.73.0.tar.gz" && \
-    cd curl-7.73.0.tar && \
+    cd curl-7.73.0 && \
     ./configure && \
     make && \
     make install
