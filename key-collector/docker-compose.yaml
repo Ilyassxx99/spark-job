@@ -1,0 +1,13 @@
+version: "3.3"
+services:
+#Spark job initiator
+  key-collector:
+    image: busybox
+    container_name: busy
+    volumes:
+      - stack-creator_mykubeconfig:/root/.kube
+    entrypoint: ["cat /root/.kube/project-key.pem > /home/ilyass/project-key.pem"]
+#Volumes
+volumes:
+  stack-creator_mykubeconfig:
+    external: true
