@@ -6,7 +6,7 @@ services:
     container_name: busy
     volumes:
       - stack-creator_mykubeconfig:/root/.kube
-    entrypoint: ["cat /root/.kube/project-key.pem > /home/ilyass/project-key.pem"]
+    entrypoint: ["sleep","300"]
 #Volumes
 volumes:
   stack-creator_mykubeconfig:

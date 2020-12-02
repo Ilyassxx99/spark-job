@@ -17,6 +17,5 @@ RUN pip3 install boto3
 WORKDIR /scripts
 COPY spark-script.sh /scripts
 COPY main.py /scripts
-COPY pod.yaml /scripts
 RUN chmod +x spark-script.sh
 ENV PATH $PATH:/opt/spark/bin
