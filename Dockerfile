@@ -5,10 +5,10 @@ RUN java -version
 
 RUN mkdir -p /opt/spark && mkdir /scripts
 
-COPY jars /opt/spark/jars
-COPY bin /opt/spark/bin
-COPY sbin /opt/spark/sbin
-COPY data /opt/spark/data
+COPY /home/ilyass/spark-3.0.1-bin-hadoop2.7/jars /opt/spark/jars
+COPY /home/ilyass/spark-3.0.1-bin-hadoop2.7/bin /opt/spark/bin
+COPY /home/ilyass/spark-3.0.1-bin-hadoop2.7/sbin /opt/spark/sbin
+COPY /home/ilyass/spark-3.0.1-bin-hadoop2.7/data /opt/spark/data
 
 ENV SPARK_HOME /opt/spark
 
