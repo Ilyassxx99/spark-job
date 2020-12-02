@@ -20,6 +20,6 @@ bin/spark-submit \
 --conf spark.kubernetes.driver.volumes.persistentVolumeClaim.spark-volume-claim.mount.path=/opt/spark/work-dir \
 --conf spark.kubernetes.executor.volumes.persistentVolumeClaim.spark-volume-claim.options.claimName=spark-volume-claim \
 --conf spark.kubernetes.executor.volumes.persistentVolumeClaim.spark-volume-claim.mount.path=/opt/spark/work-dir \
-local:///opt/spark/jobs/WordCount.jar
+local:///opt/spark/examples/WordCount.jar
 #Cleanup of spark job pods
 # kubectl delete pods --all -n default
