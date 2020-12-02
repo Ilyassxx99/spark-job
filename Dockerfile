@@ -6,6 +6,7 @@ COPY jars /opt/spark/jars
 COPY bin /opt/spark/bin
 COPY sbin /opt/spark/sbin
 COPY data /opt/spark/data
+COPY conf /opt/spark/conf
 
 ENV SPARK_HOME /opt/spark
 
