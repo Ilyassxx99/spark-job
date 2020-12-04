@@ -8,7 +8,7 @@ bin/spark-submit \
 --deploy-mode cluster \
 --name WordCount \
 --class WordCount \
---conf spark.executor.instances=3 \
+--conf spark.executor.instances=2 \
 --conf spark.kubernetes.driver.request.cores=1 \
 --conf spark.kubernetes.executor.request.cores=1 \
 --conf spark.kubernetes.container.image=ilyassifez/spark:testy \
@@ -26,5 +26,5 @@ cat /root/spark-log | grep -m 1 "node name"
 echo "This is the spark node IP: $SPARK_NODE"
 #Cleanup of spark job pods
 echo "----------------------------------------------------------------------------------------------"
-echo "Spark Job results are located in /data/default/user/spark/result"
+echo "Spark Job results are located in /home/ubuntu/data/spark"
 echo "SSH using the /root/.kube/project-key.pem private key "
