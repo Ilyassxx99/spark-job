@@ -21,9 +21,6 @@ bin/spark-submit \
 --conf spark.kubernetes.executor.volumes.persistentVolumeClaim.spark-volume-claim.options.claimName=spark-volume-claim \
 --conf spark.kubernetes.executor.volumes.persistentVolumeClaim.spark-volume-claim.mount.path=/opt/spark/work-dir \
 local:///opt/spark/jobs/WordCount.jar
-SPARK_NODE=$(cat /root/spark-log | grep -m 1 "node name" | cut -d " " -f 4)
-cat /root/spark-log | grep -m 1 "node name"
-echo "This is the spark node IP: $SPARK_NODE"
 #Cleanup of spark job pods
 echo "----------------------------------------------------------------------------------------------"
 echo "Spark Job results are located in /home/ubuntu/data/spark"
