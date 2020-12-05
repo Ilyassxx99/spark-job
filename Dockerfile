@@ -18,12 +18,12 @@ RUN apt-get update && apt-get install -y wget && rm -rf /var/lib/apt/lists/*    
     tar -xvf $JAVA_PKG_NAME                                                     && \
     rm $JAVA_PKG_NAME                                                           && \
     mkdir -p /usr/lib/jvm                                                       && \
-    mv ./$JAVA_FOLDER/* $JVM_ROOT                                                 && \
+    mv ./$JAVA_FOLDER $JVM_ROOT                                                 && \
     update-alternatives --install /usr/bin/java java $JVM_ROOT/$JAVA_FOLDER/bin/java 1        && \
     update-alternatives --install /usr/bin/javac javac $JVM_ROOT/$JAVA_FOLDER/bin/javac 1     && \
     java -version
 
-ENV JAVA_HOME /usr/lib/jvm/jdk1.8.0_221/
+ENV JAVA_HOME $JVM_ROOT/$JAVA_FOLDER
 
 RUN mkdir -p /opt/spark && mkdir /scripts
 
