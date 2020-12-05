@@ -23,7 +23,7 @@ RUN apt-get update && apt-get install -y wget && rm -rf /var/lib/apt/lists/*    
     update-alternatives --install /usr/bin/javac javac $JVM_ROOT/$JAVA_FOLDER/bin/javac 1     && \
     java -version
 
-ENV JAVA_HOME /usr/lib/jvm
+ENV JAVA_HOME /usr/lib/jvm/jdk1.8.0_221/
 
 RUN mkdir -p /opt/spark && mkdir /scripts
 
@@ -45,4 +45,4 @@ WORKDIR /scripts
 COPY spark-script.sh /scripts
 COPY main.py /scripts
 RUN chmod +x spark-script.sh
-ENV PATH $PATH:/opt/spark/bin:/usr/lib/jvm/bin
+ENV PATH $PATH:/opt/spark/bin:$JAVA_HOME/bin
