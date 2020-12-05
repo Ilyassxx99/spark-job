@@ -3,7 +3,7 @@ FROM python:slim-buster
 RUN apt-get update
 RUN apt-get install -y apt-utils build-essential gcc
 
-ENV JAVA_FOLDER jdk-8u221-linux-x64
+ENV JAVA_FOLDER jdk1.8.0_221
 
 ENV JVM_ROOT /usr/lib/jvm
 
