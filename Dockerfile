@@ -12,6 +12,7 @@ ENV SPARK_HOME /opt/spark
 
 # install boto3
 RUN pip3 install boto3
+RUN pip3 install paramiko
 
 
 # add scripts and update spark default config
